@@ -1,0 +1,85 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int op,a[]={0,0,1,1},b[]={0,1,0,1},w;
+	yes:
+		cout<<"Enter 1 for conjunction\t  2 for implication \t 3 for Bi-implication \t 4 for Disjunction\t   6 to exit"<<endl;
+		cin>>op;
+		cout<<endl;
+		switch(op){
+		case 1:
+		cout<<"\tCONJUNCTION \n";
+		cout<<"\tA \t B \tA^B\n";
+		for(int i=0;i<4;i++){
+		for(int j=0;j<4;j++){
+		if(i==j){
+		cout<<"\t"<<a[i]<<"\t"<<b[i]<<"\t"<<a[i]*b[i]<<endl;	
+             	}
+		}
+		}	
+		goto wish;
+		case 2:
+		cout<<"\tIMPLICATION \n";
+		cout<<"\tA \t B \tA->B\n";
+		for(int i=0;i<4;i++){
+		for(int j=0;j<4;j++){
+		if(i==j){
+		if(a[i]==1 && b[j]==0){
+		
+		cout<<"\t"<<a[i]<<"\t"<<b[i]<<"\t"<<"0"<<endl;	
+		}
+		else{
+		cout<<"\t"<<a[i]<<"\t"<<b[i]<<"\t"<<"1"<<endl;
+		}
+             	}
+		}
+		}
+		goto wish;
+	case 3:
+		cout<<"\tBI-IMPLICATION \n";
+		cout<<"\tA \t B \tA<->B\n";
+		for(int i=0;i<4;i++){
+		for(int j=0;j<4;j++){
+		if(i==j){
+		if(a[i]==b[j]){
+		
+		cout<<"\t"<<a[i]<<"\t"<<b[i]<<"\t"<<"1"<<endl;	
+		}
+		else{
+		cout<<"\t"<<a[i]<<"\t"<<b[i]<<"\t"<<"0"<<endl;
+		}
+             	}
+		}
+		}
+		goto wish;
+		case 4:
+		cout<<"\tDISJUNCTION \n";
+		cout<<"\tA \t B \tAvB\n";
+		for(int i=0;i<4;i++){
+		for(int j=0;j<4;j++){
+		if(i==j){
+		if(a[i]==0 && b[j]==0){
+		
+		cout<<"\t"<<a[i]<<"\t"<<b[i]<<"\t"<<"0"<<endl;	
+		}
+		else{
+		cout<<"\t"<<a[i]<<"\t"<<b[i]<<"\t"<<"1"<<endl;
+		}
+             	}
+		}
+		}
+		goto wish;
+		case 6:
+		break ;
+		 wish:
+		cout<<"Do you wish to continue?"<<endl<<"Enter 5 to continue"<<endl;
+		cin>>w;
+		case 5:
+		goto yes;
+		default:
+			cout<<"INVALID!!";
+		}
+		return 0;
+			
+			
+}
